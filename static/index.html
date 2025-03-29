@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Image Compressor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <i class="fas fa-compress-alt"></i>
+        <span>SmartCompress</span>
+      </div>
+      <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="header">
+        <h1>Smart Image Compressor</h1>
+        <p>Compress your images without losing quality</p>
+      </div>
+
+      <div class="main-content">
+        <div class="upload-area">
+          <div class="drop-zone" id="dropZone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Drag and drop your image here</p>
+            <span>or</span>
+            <button class="browse-btn">Browse Files</button>
+            <input type="file" id="fileInput" accept="image/*" hidden />
+          </div>
+        </div>
+
+        <div class="compression-panel" id="compressionPanel">
+          <div class="image-preview">
+            <div class="preview-container">
+              <div class="preview-box original">
+                <h3>Original Image</h3>
+                <div class="image-container">
+                  <img id="originalPreview" alt="Original" />
+                </div>
+                <div class="image-info">
+                  <p>Size: <span id="originalSize">0 KB</span></p>
+                  <p>Dimensions: <span id="originalDimensions">0 x 0</span></p>
+                </div>
+              </div>
+              <div class="preview-box compressed">
+                <h3>Compressed Image</h3>
+                <div class="image-container">
+                  <img id="compressedPreview" alt="Compressed" />
+                </div>
+                <div class="image-info">
+                  <p>Size: <span id="compressedSize">0 KB</span></p>
+                  <p>
+                    Dimensions: <span id="compressedDimensions">0 x 0</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="compression-settings">
+            <div class="setting-group">
+              <label>Target File Size (KB)</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="targetSize"
+                  min="1"
+                  placeholder="Enter target size in KB"
+                />
+                <button id="compressBtn" class="btn-primary">Compress</button>
+              </div>
+            </div>
+
+            <div class="setting-group">
+              <label>Quality Presets</label>
+              <div class="quality-options">
+                <button class="quality-btn" data-quality="high">High</button>
+                <button class="quality-btn active" data-quality="medium">
+                  Medium
+                </button>
+                <button class="quality-btn" data-quality="low">Low</button>
+              </div>
+            </div>
+
+            <div class="setting-group">
+              <label>Advanced Settings</label>
+              <div class="advanced-settings">
+                <div class="setting">
+                  <label>Max Width</label>
+                  <input type="number" id="maxWidth" placeholder="Auto" />
+                </div>
+                <div class="setting">
+                  <label>Max Height</label>
+                  <input type="number" id="maxHeight" placeholder="Auto" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button id="downloadBtn" class="btn-primary">
+              <i class="fas fa-download"></i> Download
+            </button>
+            <button id="uploadBtn" class="btn-secondary">
+              <i class="fas fa-cloud-upload-alt"></i> Upload to Cloud
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
